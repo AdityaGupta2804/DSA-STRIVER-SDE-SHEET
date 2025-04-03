@@ -6,21 +6,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class ListNode{
+class ListNode {
 public:
     int val;
     ListNode* next;
-    ListNode(int data){
+    
+    ListNode(int data) {
         val = data;
         next = nullptr;
     }
+
+    // Getter for node value
+    int getValue() {
+        return val;
+    }
+
+    // Setter for node value
+    void setValue(int newVal) {
+        val = newVal;
+    }
 };
-class LinkedList{
+
+class LinkedList {
 private: 
-    ListNode *head;
+    ListNode* head;
 public:
     LinkedList() { head = nullptr; }
-    /*Create a Linked List*/
+
+    // Getter for head
+    ListNode* getHead() {
+        return head;
+    }
+
+    // Setter for head
+    void setHead(ListNode* newHead) {
+        head = newHead;
+    }
+
+    // Create a Linked List
     void createLinkedList(int n) {
         this->head = nullptr;  // Ensure head is reset
         ListNode *tail = nullptr;
@@ -39,6 +62,7 @@ public:
             }
         }
     }
+
     // Insert at Head
     void insertAtHead(int val) {
         ListNode* newNode = new ListNode(val);
@@ -145,8 +169,16 @@ public:
     }
 };
 
-void solve(){
-   
+void solve() {
+    // Test cases for linked list operations
+    LinkedList list;
+    list.createLinkedList(5);
+    list.display();
+    
+    cout << "Head Value: " << list.getHead()->getValue() << endl;
+    list.insertAtHead(100);
+    cout << "After inserting 100 at head: ";
+    list.display();
 }
 
 signed main() {
